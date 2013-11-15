@@ -9,6 +9,14 @@ Installs keys and client for Manta.
 
 * SmartOS
 
+## Usage
+
+This cookbook creates a configuration file in the home directory of the user connecting to Manta.
+For scripts that require an ssh-agent, `$HOME` should be set before `.manta_config` is
+loaded to ensure that an ssh-agent is initialized. The config file will attempt to start an ssh-agent
+for the user if one is not already running. If `$USER` is set, it will use that, otherwise it will try
+to discover `$USER` using `whoami`.
+
 ## Attributes
 
 * `manta.user` -- used by `manta::keys` recipe to install private keys into correct path
