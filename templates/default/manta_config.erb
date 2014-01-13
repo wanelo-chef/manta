@@ -9,7 +9,7 @@ if [ ! -z "$HOME" ]; then
     export SSH_AGENT_PID=$(pgrep -U $USER -f ssh-agent)
     export SSH_AUTH_SOCK=$HOME/agent.ppid
 
-    if [ -z "$SSH_AUTH_SOCK" ]; then
+    if [ -z "$SSH_AGENT_PID" ]; then
       eval $(/usr/bin/ssh-agent -a $SSH_AUTH_SOCK)
     fi
 
