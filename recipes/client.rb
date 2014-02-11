@@ -25,13 +25,6 @@ user = node["manta"]["user"]
 ssh_key = data_bag_item("manta", "keys")
 manta_user = ssh_key['name']
 
-case node['manta']['user']
-when "root"
-  home_path = ""
-else
-  home_path = "/home"
-end
-
 template "#{home_path}/#{user}/.manta_config" do
   source "manta_config.erb"
   owner user
