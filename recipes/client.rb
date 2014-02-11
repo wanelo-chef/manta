@@ -22,6 +22,7 @@ include_recipe "manta::keys"
 npm_package "manta"
 
 user = node["manta"]["user"]
+home_path = node["manta"]["home_path"]
 ssh_key = data_bag_item("manta", "keys")
 manta_user = ssh_key['name']
 
