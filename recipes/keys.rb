@@ -22,7 +22,7 @@ ssh_key = data_bag_item("manta", "keys")
 
 directory "#{home_path}/#{user}/.ssh" do
   owner user
-  mode 600
+  mode 0600
 end
 
 template "#{home_path}/#{user}/.ssh/#{ssh_key["name"]}" do
