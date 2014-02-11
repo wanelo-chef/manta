@@ -21,6 +21,7 @@ home_path = node["manta"]["home_path"]
 ssh_key = data_bag_item("manta", "keys")
 
 directory "#{home_path}/#{user}/.ssh" do
+  owner user
   mode 600
 end
 
