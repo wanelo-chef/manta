@@ -17,13 +17,8 @@
 #   limitations under the License.
 
 user = node["manta"]["user"]
+home_path = node["manta"]["home_path"]
 ssh_key = data_bag_item("manta", "keys")
-case node['manta']['user']
-when "root"
-  home_path = ""
-else
-  home_path = "/home"
-end
 
 directory "#{home_path}/#{user}/.ssh" do
   mode 600
