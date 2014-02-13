@@ -36,7 +36,7 @@ template "#{home_path}/#{user}/.manta_config" do
 end
 
 bash "load manta config from bashrc" do
-  code %Q{echo "source ~#{user}/.manta_config" >> ~#{user}/.bashrc}
+  code %Q{echo "source ~/.manta_config" >> ~#{user}/.bashrc}
   user user
   not_if "grep .manta_config ~#{user}/.bashrc"
 end
