@@ -22,11 +22,11 @@ include_recipe "manta::keys"
 npm_package "manta"
 
 user = node["manta"]["user"]
-home_path = node["manta"]["home_path"]
+install_path = node["manta"]["install_path"]
 ssh_key = data_bag_item("manta", "keys")
 manta_user = ssh_key['name']
 
-template "#{home_path}/#{user}/.manta_config" do
+template "#{install_path}/.manta_config" do
   source "manta_config.erb"
   owner user
   mode 0600
