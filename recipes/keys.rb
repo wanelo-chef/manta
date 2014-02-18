@@ -16,10 +16,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
+user= node["manta"]["user"]
 install_path = node["manta"]["install_path"]
 ssh_key = data_bag_item("manta", "keys")
 
-directory "#{instal_path}/.ssh" do
+directory "#{install_path}/.ssh" do
   owner user
   mode 0600
 end
