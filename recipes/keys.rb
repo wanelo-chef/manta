@@ -16,23 +16,22 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-user = node["manta"]["user"]
-home_path = node["manta"]["home_path"]
+install_path = node["manta"]["install_path"]
 ssh_key = data_bag_item("manta", "keys")
 
-directory "#{home_path}/#{user}/.ssh" do
+directory "#{instal_path}/.ssh" do
   owner user
   mode 0600
 end
 
-template "#{home_path}/#{user}/.ssh/#{ssh_key["name"]}" do
+template "#{install_path}/.ssh/#{ssh_key["name"]}" do
   source "key.erb"
   owner user
   mode 0600
   variables :key_content => ssh_key["private_key"]
 end
 
-template "#{home_path}/#{user}/.ssh/#{ssh_key["name"]}.pub" do
+template "#{install_path}/.ssh/#{ssh_key["name"]}.pub" do
   source "key.erb"
   owner user
   mode 0600
