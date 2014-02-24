@@ -22,19 +22,19 @@ ssh_key = data_bag_item("manta", "keys")
 
 directory "#{install_path}/.ssh" do
   owner user
-  mode 0600
+  mode 0700
 end
 
 template "#{install_path}/.ssh/#{ssh_key["name"]}" do
   source "key.erb"
   owner user
-  mode 0600
+  mode 0700
   variables :key_content => ssh_key["private_key"]
 end
 
 template "#{install_path}/.ssh/#{ssh_key["name"]}.pub" do
   source "key.erb"
   owner user
-  mode 0600
+  mode 0700
   variables :key_content => ssh_key["public_key"]
 end

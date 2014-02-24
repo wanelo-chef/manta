@@ -29,7 +29,7 @@ manta_user = ssh_key['name']
 template "#{install_path}/.manta_config" do
   source "manta_config.erb"
   owner user
-  mode 0600
+  mode 0700
   variables :manta_user => manta_user,
             :user => user,
             :key_name => ssh_key["name"]
