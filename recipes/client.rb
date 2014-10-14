@@ -19,7 +19,9 @@
 include_recipe "nodejs::default"
 include_recipe "manta::keys"
 
-npm_package "manta"
+npm_package "manta" do
+  not_if "npm list -g manta"
+end
 
 user = node["manta"]["user"]
 install_path = node["manta"]["install_path"]
